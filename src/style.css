@@ -8,6 +8,12 @@
 
 a{
     text-decoration: none;
+    outline: none;
+}
+
+a::after{
+    outline: none;
+    border: none;
 }
 
 body{
