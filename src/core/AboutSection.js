@@ -57,7 +57,7 @@ export default function AboutSection() {
             query : "fetch:ip",
             units: "m"
         }
-        Axios.get("http://api.weatherstack.com/current?",{params}).then(
+        Axios.get("https://api.weatherstack.com/current?",{params}).then(
             response=>{
                 setWeather(response.data)
             }
