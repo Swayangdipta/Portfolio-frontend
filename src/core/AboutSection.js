@@ -51,14 +51,14 @@ export default function AboutSection() {
     }
 
     const getWeather = () => {
-        const API_KEY = "c61df707423ac89b0c6f0bbc44eec209";
+        const API_KEY = "5413cba48a7343a9bda111746212508";
         const params ={
-            access_key : API_KEY,
-            query : "fetch:ip",
-            units: "m"
+            key : API_KEY,
+            q : "auto:ip"
         }
-        Axios.get("https://api.weatherstack.com/current?",{params}).then(
+        Axios.get("https://api.weatherapi.com/v1/current.json?",{params}).then(
             response=>{
+                console.log(response.data);
                 setWeather(response.data)
             }
         ).catch(e=>{
@@ -104,7 +104,7 @@ export default function AboutSection() {
                         <h1 className="folioSectionTitle mySuperName">Swayangdipta Das</h1>
                         <div className="subname">
                             <p className="viewName folioSectionTitle viewDescPara" style={{textAlign: "center", color: "mediumorchid",margin: "auto"}}><FaBirthdayCake/> 11.03.2000</p>
-                            <p className="viewName folioSectionTitle viewDescPara" style={{textAlign: "center",color: "lightgoldenrodyellow",margin: "auto"}}><TiWeatherCloudy /> {weather?weather.current.temperature: '0'}&deg;C</p>
+                            <p className="viewName folioSectionTitle viewDescPara" style={{textAlign: "center",color: "lightgoldenrodyellow",margin: "auto"}}><TiWeatherCloudy /> {weather?weather.current.temp_c: '0'}&deg;C</p>
                             <p className="viewName folioSectionTitle viewDescPara" style={{textAlign: "center",color: "lightseagreen",textTransform: "capitalize",margin: "auto"}}><FaClock /> {currentTime.hr}:{currentTime.min}|{currentTime.day}</p>
                         </div>
                         <hr className="interSection" />
