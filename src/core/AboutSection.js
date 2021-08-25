@@ -134,7 +134,6 @@ export default function AboutSection() {
                             <h1 className="folioSectionTitle viewName viewTagName skill">Illustrator</h1>
                             <h1 className="folioSectionTitle viewName viewTagName skill">MERN</h1>
                         </div>
-                        <h1 className="viewDescPara folioSectionTitle viewName viewTagName specialTitle" style={{marginBottom: '50px',width: "initial"}}>Resume</h1>
                         <div className="skills resume">
                             <Link to={resume} target='_blank' download><button className="folioSectionTitle viewName viewTagName getResume">Resume</button></Link>
                         </div>

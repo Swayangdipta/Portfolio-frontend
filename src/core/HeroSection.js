@@ -43,10 +43,6 @@ export default function HeroSection() {
 
   useEffect(()=>{
     window.addEventListener('load',(e)=>{
-      document.querySelector('.loadingScreen').style.height = "100vh"
-      document.querySelector('.loadingScreen').style.opacity = "1"
-      document.querySelector('.loadingScreen').style.display = "flex"
-
       setTimeout(()=>{
         document.querySelector('.loadingScreen').style.height = "0px"
         document.querySelector('.loadingScreen').style.opacity = "0"
