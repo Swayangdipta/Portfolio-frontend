@@ -17,21 +17,21 @@ export default function DetailedView({item,isOpen=undefined,setIsOpen = f => f})
                 <div className="viewImg">
                     <img src={item.title ? `${API}/project/thumbnail/${item._id}` : `${API}/course/photo/${item._id}`} className="viewThumbnail" />
                     <div className="titleHolder">
-                        <h1 className="viewName folioSectionTitle viewTitle">Title</h1>
-                        <h1 className="viewName folioSectionTitle">{item.title ? item.title : item.name}</h1>
+                        <h1 className="viewName folioSectionTitle viewTitle marginController">Title</h1>
+                        <h1 className="viewName folioSectionTitle marginController">{item.title ? item.title : item.name}</h1>
                     </div>
                 </div>
                 <div className="viewExtras">
                     <div className="viewDescription">
-                        <h1 className="viewName folioSectionTitle viewTitle viewDescriptionName">Description</h1>
-                        <p className="viewName folioSectionTitle viewDescPara">{item.description}</p>
+                        <h1 className="viewName folioSectionTitle viewTitle viewDescriptionName marginController">Description</h1>
+                        <p className="viewName folioSectionTitle viewDescPara marginController">{item.description}</p>
                     </div>
                     <div className="viewTags">
-                        <h1 className="viewName folioSectionTitle viewTitle viewDescriptionName viewCategory">Category</h1>
-                        <h1 className="viewDescPara folioSectionTitle viewName viewTagName">{item.tag ? item.tag : item.category.name}</h1>
+                        <h1 className="viewName folioSectionTitle viewTitle viewDescriptionName viewCategory marginController">Category</h1>
+                        <h1 className="viewDescPara folioSectionTitle viewName viewTagName marginController">{item.tag ? item.tag : item.category.name}</h1>
                     {item.title ? (
                         <div className="viewLinks">
-                            <h1 className="viewName folioSectionTitle viewTitle viewDescriptionName viewCategory">Links</h1>
+                            <h1 className="viewName folioSectionTitle viewTitle viewDescriptionName viewCategory marginController">Links</h1>
                             <div className="viewActualLinks">
                                 <a style={{color: "hsla(192, 18%, 49%, 1)"}} href={item.git_repo}><FiGithub /></a>
                                 <a style={{color: "hsla(192, 18%, 49%, 1)"}} href={item.live_url}><FaGlobe /></a>

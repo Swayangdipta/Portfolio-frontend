@@ -684,7 +684,7 @@ input[type="file" i]{
     left: 0;
     right: 0;
     left: 0;
-    z-index: 120;
+    z-index: 200;
   }
 
   .detailedView{
@@ -694,6 +694,7 @@ input[type="file" i]{
       grid-template-columns: 1fr 1fr;
       background: #002a41;
       border-radius: 10px;
+      z-index: 200;
   }
 
     .detailedView::-webkit-scrollbar {
@@ -840,9 +841,9 @@ input[type="file" i]{
       justify-content: center;
       font-size: 50px;
       position: fixed;
-      top: 10px;
+      top: 30px;
       right: 30px;
-      z-index: 150;
+      z-index: 500;
       background: #000a14;
       color: #03a9f4;
       cursor: pointer;
@@ -1344,6 +1345,13 @@ input[type="file" i]{
     .fullDesc p{
         font-size: 3vw;
     }
+    .closeView{
+        top: 35px;
+        right: 10px;
+    }
+    .detailedView{
+        margin-top: 20px;
+    }
 }
 
 
@@ -1356,6 +1364,11 @@ input[type="file" i]{
     .viewThumbnail{
         width: 350px;
         height: 206px;
+        margin-left: 10px;
+    }
+
+    .viewTitle,.marginController{
+        margin-left: 10px;
     }
     .contactContainer{
         grid-template-columns: 1fr;
@@ -1438,8 +1451,20 @@ input[type="file" i]{
         letter-spacing: 0.6vw;
         font-size: 4vw;
     }
+    .closeView{
+        right: 2px;
+        width: 50px;
+        height: 50px;
+        top: 30px;
+    }
 }
 @media only screen and (max-width: 360px) {
+    .viewThumbnail{
+        margin-left: 5px;
+    }
+    .marginController{
+        margin-left: 5px;
+    }
     .loginForm,.signUpForm{
         width: 80vw;
     }
