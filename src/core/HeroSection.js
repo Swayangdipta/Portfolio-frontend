@@ -1,28 +1,38 @@
 import React,{ Suspense,useEffect,useState} from 'react'
-import { OrbitControls } from "@react-three/drei";
+// import { OrbitControls } from "@react-three/drei";
 import { Canvas } from '@react-three/fiber';
 import Aphelion from '../assets/sounds/Aphelion160Short.mp3'
 import AudioPlayer from './AudioPlayer';
 import Planets from './Planets';
 import useMousePosition from './useMousePosition';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import ProjectSection from './ProjectSection';
 import ContactSection from './ContactSection';
 import AboutSection from './AboutSection';
 import Ripple from '../assets/img/Ripple-1s-200px.svg'
-
+import AlertMobileDevice from './AlertMobileDevice';
+import UAParser from 'ua-parser-js'
 
 export default function HeroSection() {
     const {x,y} = useMousePosition()
     const [width,setWidth] = useState(window.innerWidth)
     const [currentPage,setCurrentPage] = useState('home')
-    const [i,setI] = useState(0)
+    const [isMobile,setIsMobile] = useState(false)
+    const [deviceInfo,setDeviceInfo] = useState({
+      device: '',
+      browser: '',
+      model: '',
+      os: ''
+    })
 
 
     const handleClick = (page) => {
       setInterval(()=>{
         setCurrentPage(page)
-      },500)
+      },300)
+      document.querySelector('.loadingScreen').style.height = "100vh"
+      document.querySelector('.loadingScreen').style.opacity = "1"
+      document.querySelector('.loadingScreen').style.display = "flex"
     }
 
 
@@ -42,7 +52,6 @@ export default function HeroSection() {
   })
 
   useEffect(()=>{
-    window.addEventListener('load',(e)=>{
       setTimeout(()=>{
         document.querySelector('.loadingScreen').style.height = "0px"
         document.querySelector('.loadingScreen').style.opacity = "0"
@@ -52,8 +61,7 @@ export default function HeroSection() {
         },1010)
 
       },3000)
-    })
-  },[i])
+  },[])
 
   useEffect(()=>{
     setWidth(window.innerWidth)
@@ -67,13 +75,32 @@ export default function HeroSection() {
     console.log(window.innerWidth);
   },[width])
 
+  useEffect(()=>{
+    let userAgent = navigator.userAgent;
+    const parser = new UAParser();
+    parser.setUA(userAgent)
+    const result = parser.getResult()
+
+    setDeviceInfo({...deviceInfo,os:result.os.name,browser: result.browser.name})
+    let os = result.os.name.toLowerCase()
+    if(os == 'android'){
+      setIsMobile(!isMobile)
+      console.log("Device OS: ",os.toUpperCase());
+    }else{
+      console.log("Device OS: ",os.toUpperCase());
+    }
+  },[])
+
   const playEffect = ()=>{
     document.querySelector("audio").play()
   }
 
     return (
         <>
-        <div className="loadingScreen"><img src={Ripple} />Give me a sec...</div>
+        { currentPage == 'home' ? (<div className="loadingScreen"><img src={Ripple} />Give me a sec...</div>) : ''}
+        {
+          isMobile && (<AlertMobileDevice isMobile={isMobile} setIsMobile={setIsMobile} info={deviceInfo} />)
+        }
         <div className="canvasContainer">
           {
             currentPage == 'home' ? (

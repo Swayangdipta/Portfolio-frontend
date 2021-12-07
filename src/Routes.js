@@ -9,11 +9,15 @@ import Signup from './user/Signup'
 import EditCourse from './user/EditCourse'
 import NotFoundPage from './core/NotFoundPage'
 import { AudioPlayerProvider } from 'react-use-audio-player'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 const Routes =() => {
     return (
+        <>
+        <ToastContainer />
         <AudioPlayerProvider>
         <BrowserRouter>
             <Switch>
@@ -27,6 +31,7 @@ const Routes =() => {
             </Switch>
         </BrowserRouter>
         </AudioPlayerProvider>
+        </>
     )
 }
 

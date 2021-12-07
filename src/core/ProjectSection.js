@@ -36,7 +36,7 @@ export default function ProjectSection() {
             <div className="projectSection" id="projectSection">
             <h1 className="folioSectionTitle">Projects</h1>
             <div className="projectContainer">
-            <div className="projects">
+            <div className="projects" style={projects.length > 0 ? {overflowX: "scroll"}:{overflowX: "hidden"}}>
             {
                 projects.length > 0 ? (
                     projects.map((project,index)=>(
@@ -44,7 +44,7 @@ export default function ProjectSection() {
                         <ProjectCard project={project} index={index} />
                         </>
                     ))
-                ) : ('Loading')
+                ) : (<div className="projects__loading">Loading...</div>)
             }
             </div>
             </div>

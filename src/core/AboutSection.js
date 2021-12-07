@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { API } from '../Backend'
 import { getAllCourses, getUserPhoto } from '../user/helper/userAndAdminApiCalls'
 import CourseCard from './CourseCard'
-import {FaBirthdayCake,TiWeatherSunny,FaClock, TiWeatherCloudy} from 'react-icons/all'
+import {FaBirthdayCake,FaClock, TiWeatherCloudy} from 'react-icons/all'
 import Axios from 'axios'
 import { Link } from 'react-router-dom'
 import resume from '../assets/Swayangdipta-Resume (2).pdf'
 import HeroSection from './HeroSection'
 import ContactSection from './ContactSection'
 import ProjectSection from './ProjectSection'
-import { isAuthenticated } from '../auth/helper'
 import { getInfo } from './helper/coreapicalls'
 
 export default function AboutSection() {
@@ -36,7 +34,6 @@ export default function AboutSection() {
         var hours = date.getHours();
         var minutes = date.getMinutes();
         var seconds = date.getSeconds()
-        var ampm = hours >= 12 ? 'PM' : 'AM';
         hours = hours % 12;
         hours = hours ? hours : 12; // the hour '0' should be '12'
         minutes = minutes < 10 ? '0'+minutes : minutes;
@@ -83,7 +80,6 @@ export default function AboutSection() {
             setDp(data)
         })
         getInfo('6113cc8ab13ac20c98207fcf').then(data=>{
-
             setUserInfo(data)
         })
 
@@ -148,6 +144,6 @@ export default function AboutSection() {
                 </div>
             </div>
         </div>
-        ) : currentPage == "home" ? (<HeroSection />) : currentPage == "contact" ? (<ContactSection/>) : currentPage == "projects" ? (<ProjectSection/>) : ''
+        ) : currentPage == "home" ? (<HeroSection />) : currentPage == "contact" ? (<ContactSection />) : currentPage == "projects" ? (<ProjectSection />) : ''
     )
 }

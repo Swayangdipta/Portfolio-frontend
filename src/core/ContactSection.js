@@ -5,6 +5,7 @@ import { sendMail } from './helper/coreapicalls'
 import HeroSection from './HeroSection'
 import ProjectSection from './ProjectSection'
 import loader from '../assets/img/Rolling-1s-200px (1).svg'
+import { toast } from 'react-toastify'
 
 
 export default function ContactSection() {
@@ -64,12 +65,14 @@ export default function ContactSection() {
         setResponse({...response,error: false,success:false})
     }
 
-    const successMsg = () => (
-        <div className="successPopUp" onClick={clearError}><h2 className="actualMsg">Message sent.</h2></div>
-    )
-    const errorMsg = () => (
-        <div className="errorPopUp" onClick={clearError}><h2 className="actualMsg">Oops! Something went wrong</h2></div>
-    )
+    const successMsg = () => {
+        toast.success("Message sent successfully!")
+        setResponse({...response,success: false})
+    }
+    const errorMsg = () => {
+        toast.error("Oops! something went wrong.")
+        setResponse({...response,error: false})
+    }
 
     return (
         currentPage == 'contact' ? (
@@ -77,12 +80,12 @@ export default function ContactSection() {
             <h1 className="folioSectionTitle">Contact</h1>
             <div className="contactContainer">
                 <div className="socialLinks">
-                    <a href='https://github.com/Swayangdipta' ><FiGithub className="contactLinks" /></a>
-                    <a href='https://www.linkedin.com/in/swayangdipta-das-9a7815159/' ><FaLinkedin className="contactLinks" /></a>
-                    <a href='https://www.instagram.com/swayangdiptacs/' ><FaInstagramSquare  className="contactLinks"/></a>
-                    <a href='https://www.facebook.com/swayangdipta.das.1/' ><FaFacebookSquare className="contactLinks"/></a>
-                    <a href='https://www.chess.com/member/swayangdipta_das' ><FaChess className="contactLinks" /></a>
-                    <a href='swayangdiptacc@gmail.com' ><CgMail className="contactLinks"/></a>
+                    <a href='https://github.com/Swayangdipta' className="externalSocialLinks"><FiGithub className="contactLinks" /></a>
+                    <a href='https://www.linkedin.com/in/swayangdipta-das-9a7815159/' className="externalSocialLinks"><FaLinkedin className="contactLinks" /></a>
+                    <a href='https://www.instagram.com/swayangdiptacs/' className="externalSocialLinks"><FaInstagramSquare  className="contactLinks"/></a>
+                    <a href='https://www.facebook.com/swayangdipta.das.1/' className="externalSocialLinks"><FaFacebookSquare className="contactLinks"/></a>
+                    <a href='https://www.chess.com/member/swayangdipta_das' className="externalSocialLinks"><FaChess className="contactLinks" /></a>
+                    <a href='swayangdiptacc@gmail.com' className="externalSocialLinks"><CgMail className="contactLinks"/></a>
                 </div>
                 <div className="sendMsg">
                     <form className="msgForm">
@@ -92,7 +95,7 @@ export default function ContactSection() {
                         <input value={email} className="inputs msgInput" type="email" name="email" placeholder="Your email id..." onChange={(e)=>handleChange(e)('email')} required />
                         <label htmlFor="msg" className="labels msgLabel">Message</label>
                         <textarea value={message} name="msg" className="inputs textarea msgInput" placeholder="Your message..." onChange={(e)=>handleChange(e)('message')} required />
-                        <button type="button" disabled className="signinBtn msgSubmitBtn" dis onClick={handleMail}>{isSending ? (<img className="loaderImg" src={loader} />) : ('Send')}</button>
+                        <button type="button" className="signinBtn msgSubmitBtn" dis onClick={handleMail}>{isSending ? (<img className="loaderImg" src={loader} />) : ('Send')}</button>
                     </form>
                 </div>
             </div>

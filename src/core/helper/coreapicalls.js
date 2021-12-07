@@ -77,6 +77,7 @@ export const updateCourse = (userId,courseId,token,course) => {
 export const sendMail = (mail) => {
     return fetch(`${API}/sendmail`,{
         method: "POST",
+        mode: "no-cors",
         headers:{
             "Content-Type": "application/json"
         },
