@@ -478,7 +478,7 @@ input[type="file" i]{
 }
 
 .projInfo:hover{
-    background: #000e1d8f;
+    background: #000e1de3;
     /* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
     backdrop-filter: blur( 3.5px );
     -webkit-backdrop-filter: blur( 3.5px );
@@ -1354,6 +1354,7 @@ input[type="file" i]{
 
     .card{
         margin: 0;
+        margin-bottom: 30px;
     }
 }
 
@@ -1377,9 +1378,9 @@ input[type="file" i]{
     .folioSectionTitle{
         font-size: 4vw;
     }
-    .card:first-child{
+    /* .card:first-child{
         margin-left: 30px;
-    }
+    } */
 
     .viewName{
         font-size: 3vw;
@@ -1477,9 +1478,9 @@ input[type="file" i]{
         grid-template-rows: 0.3fr 1fr;
         grid-template-columns: none;
     }
-    .card:first-child{
+    /* .card:first-child{
         margin-left: 20px;
-    }
+    } */
     .viewThumbnail{
         width: 300px;
         height: 176px;
