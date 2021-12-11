@@ -1,1 +1,6 @@
-/*  /index.html
+/index.html
+/signup
+/signin
+/profile
+/editproject/:projectId
+/editcourse/:courseId
