@@ -21,7 +21,7 @@ export default function ProjectSection() {
                 console.log("Faild to load projects.");
             }else{
                 let tempData = data.sort(function(a,b){
-                    return a.fav_points - b.fav_points
+                    return b.fav_points - a.fav_points
                 })
                 setProjects(tempData)
             }
