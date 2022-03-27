@@ -20,7 +20,10 @@ export default function ProjectSection() {
             if(data.error){
                 console.log("Faild to load projects.");
             }else{
-                setProjects(data)
+                let tempData = data.sort(function(a,b){
+                    return a.fav_points - b.fav_points
+                })
+                setProjects(tempData)
             }
         })
     }
