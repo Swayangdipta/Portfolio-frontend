@@ -380,8 +380,9 @@ input[type="file" i]{
 .projects{
     min-width: 100%;
     width: max-content;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-auto-flow: column;
+/*     flex-direction: row; */
     overflow-x: scroll;
     overflow-y: hidden;
     padding-bottom: 50px;
