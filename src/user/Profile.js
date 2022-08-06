@@ -3,7 +3,7 @@ import { nativeTouchData } from 'react-dom/cjs/react-dom-test-utils.production.m
 import { Redirect,Link } from 'react-router-dom'
 import { isAuthenticated, signout } from '../auth/helper'
 import { getAllProjects, getUserPhoto,getAllCourses, getACategory } from './helper/userAndAdminApiCalls'
-import {RiMailFill,BsInfoSquareFill,FaInfoCircle, FiGithub, FaGlobe,FaEdit,FaMinusCircle} from 'react-icons/all'
+import {RiMailFill,BsInfoSquareFill,FaInfoCircle, FiGithub, FaGlobe,FaEdit,FaMinusCircle,HiMenuAlt1,HiMenuAlt3} from 'react-icons/all'
 import { API } from '../Backend'
 import AddProject from './AddProject'
 import EditProfile from './EditProfile'
@@ -110,7 +110,7 @@ export default function Profile() {
         return(
             isOpen ? (
                 <div className="menu">
-                <h2 className="formTitle profTitle" onClick={e=> setIsOpen(!isOpen)}>Profile | X</h2>
+                <h2 className="formTitle profTitle" onClick={e=> setIsOpen(!isOpen)}><HiMenuAlt3 /></h2>
                 <ul className="list">
                     <li className="listItem" onClick={e=>setOp("default")}>Home</li>
                     <li className="listItem" onClick={e=>setOp("EditProfile")}>Edit profile</li>
@@ -120,7 +120,7 @@ export default function Profile() {
                 </ul>
             </div>
             ) : (
-                <h2 className="formTitle profTitle closeMenu" onClick={e=> setIsOpen(!isOpen)}>Profile | Menu</h2>
+                <h2 className="formTitle profTitle closeMenu" onClick={e=> setIsOpen(!isOpen)}><HiMenuAlt1 /></h2>
             )
         )
     }
@@ -154,7 +154,7 @@ export default function Profile() {
                             <>
                             <h1 className="username">{user.name}</h1>
                             <h2 className="email"><RiMailFill className="icons" />{user.email}</h2>
-                            <p className="userInfo"><BsInfoSquareFill className="icons" />{user.userInfo}</p>
+                            <p className="userInfo">{user.userInfo}</p>
                             </>
                         ) : ''
                     }
